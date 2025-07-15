@@ -1,0 +1,357 @@
+/* Modernized Fonts */
+body, button, input, textarea {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #3a3a3a;
+  background: #f8f6fa;
+}
+.cursive, h1.cursive, .birthday-banner {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 2.3rem;
+  color: #e26a8d;
+  letter-spacing: 0.02em;
+}
+
+/* Modern Color Palette */
+:root {
+  --blush: #ffe5ec;
+  --lavender: #e0bbff;
+  --coral: #ffb3ab;
+  --cream: #fff8f0;
+  --gold: #ffe066;
+  --teal: #6ec6ca;
+  --accent: #e26a8d;
+  --glass: rgba(255,255,255,0.7);
+}
+
+/* Animated Gradient Background */
+body.landing, body.love-letter, body.about-her, body.wishes {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(120deg, var(--blush) 0%, var(--lavender) 100%);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease-in-out infinite alternate;
+  overflow-x: hidden;
+  position: relative;
+}
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Floating Decorative Elements */
+.bg-decor {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-decor .sparkle {
+  position: absolute;
+  width: 18px; height: 18px;
+  background: radial-gradient(circle, #fff8 60%, #fff0 100%);
+  border-radius: 50%;
+  animation: sparkleFloat 8s linear infinite;
+}
+@keyframes sparkleFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-80vh) scale(1.2); opacity: 0; }
+}
+
+/* Glassmorphism Card with Layer */
+.landing-content, .letter-container, .about-container, .wishes-container {
+  background: var(--glass);
+  border-radius: 2.2rem;
+  padding: 3.2rem 2.2rem 2.7rem 2.2rem;
+  box-shadow: 0 8px 32px #e26a8d22, 0 1.5px 8px #6ec6ca22, 0 0 0 1.5px #fff3;
+  text-align: center;
+  max-width: 440px;
+  width: 96vw;
+  margin: 4.5rem auto 2.5rem auto;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(18px) saturate(1.3);
+  border: 1.5px solid #fff3;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: cardIn 1.1s cubic-bezier(.6,.2,.2,1.1) 0.2s forwards;
+}
+@keyframes cardIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hero Text Modern */
+.cursive, h1.cursive, .birthday-banner {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 2.7rem;
+  color: #e26a8d;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 12px #fff6, 0 1px 0 #fff8;
+}
+.subtitle {
+  font-size: 1.25rem;
+  color: #7c6e7f;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* Modern Button with Ripple */
+.start-btn, .next-btn, .back-btn, .wishes-actions button {
+  display: inline-block;
+  padding: 1.1rem 2.7rem;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  color: #fff;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 12px #e26a8d33;
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  cursor: pointer;
+  margin: 0.7rem 0.7rem 0 0;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+.start-btn:active, .next-btn:active, .back-btn:active, .wishes-actions button:active {
+  transform: scale(0.97);
+}
+.start-btn::after, .next-btn::after, .back-btn::after, .wishes-actions button::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s, opacity 0.4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.start-btn:active::after, .next-btn:active::after, .back-btn:active::after, .wishes-actions button:active::after {
+  width: 180%; height: 180%; opacity: 1;
+  transition: 0s;
+}
+
+/* Floating Music Player - Top Left */
+.music-player {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  transform: none;
+  background: var(--glass);
+  border-radius: 2rem;
+  box-shadow: 0 2px 16px #e26a8d22;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+  border: 1.5px solid #fff3;
+  animation: cardIn 1.1s cubic-bezier(.6,.2,.2,1.1) 0.4s forwards;
+}
+.music-player button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.music-player button.active {
+  color: var(--teal);
+}
+.music-player .progress {
+  flex: 1;
+  height: 4px;
+  background: #e0bbff55;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 0.7rem;
+}
+.music-player .progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  width: 0%;
+  transition: width 0.2s;
+}
+
+/* Divider */
+.divider {
+  width: 60%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #fff0, var(--teal), #fff0);
+  margin: 2.2rem auto 2.2rem auto;
+  border-radius: 1px;
+  opacity: 0.5;
+}
+
+.cursive {
+  margin-bottom: 0.7rem;
+  font-size: 2.3rem;
+  color: var(--accent);
+}
+.heart {
+  animation: pulse 1.2s infinite alternate;
+  color: var(--coral);
+}
+@keyframes pulse {
+  to { transform: scale(1.12); filter: brightness(1.2); }
+}
+
+.her-photo, .couple-illustration, .about-icon {
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px #e0bbff33;
+  margin-bottom: 1.2rem;
+  background: #fff;
+}
+.her-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+.couple-illustration, .about-icon {
+  width: 72px;
+  height: 72px;
+}
+
+.letter-text, .about-section p, .wishes-message {
+  font-size: 1.13rem;
+  color: #6d6875;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+.about-section h2 {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Modern Animations */
+.hearts .floating-heart {
+  color: var(--coral);
+  opacity: 0.5;
+  font-size: 2.2rem;
+}
+.petals .falling-petal {
+  color: var(--accent);
+  opacity: 0.4;
+}
+.stars .dreamy-star {
+  background: var(--teal);
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--teal);
+}
+.confetti .confetti-piece {
+  opacity: 0.7;
+}
+
+/* Music Toggle */
+#music-toggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: var(--glass);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--accent);
+  box-shadow: 0 2px 8px #e26a8d33;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s;
+  backdrop-filter: blur(8px);
+}
+#music-toggle.active {
+  background: var(--teal);
+  color: #fff;
+}
+
+.birthday-banner {
+  font-size: 2.1rem;
+  font-family: 'Dancing Script', cursive;
+  color: var(--accent);
+  background: linear-gradient(90deg, var(--gold), var(--blush));
+  border-radius: 1.2rem;
+  padding: 1.1rem 0.5rem;
+  margin: 2.2rem 0 1.5rem 0;
+  box-shadow: 0 0 32px #ffe06655;
+  animation: bannerPop 1.5s infinite alternate;
+}
+@keyframes bannerPop {
+  to { transform: scale(1.05); filter: brightness(1.1); }
+}
+
+/* Wishes Page Button Group Improvements */
+.wishes-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 2.2rem 0 1.5rem 0;
+  flex-wrap: wrap;
+}
+.wishes-actions button {
+  min-width: 170px;
+  max-width: 100%;
+  font-size: 1.15rem;
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  margin: 0.2rem 0;
+}
+.wishes-container {
+  max-width: 480px;
+  padding: 3.2rem 2.2rem 2.7rem 2.2rem;
+}
+@media (max-width: 700px) {
+  .wishes-actions {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: stretch;
+  }
+  .wishes-actions button {
+    width: 100%;
+    min-width: 0;
+    font-size: 1.08rem;
+    padding: 1rem 0.5rem;
+  }
+  .wishes-container {
+    padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+    max-width: 99vw;
+  }
+}
+
+/* Responsive Modern */
+@media (max-width: 600px) {
+  .landing-content, .letter-container, .about-container, .wishes-container { padding: 1.2rem 0.5rem; max-width: 99vw; }
+  .cursive { font-size: 1.4rem; }
+  .her-photo, .couple-illustration, .about-icon { width: 64px; height: 64px; }
+  .birthday-banner { font-size: 1.2rem; }
+  .wishes-actions { flex-direction: column; gap: 0.5rem; }
+  .music-player { bottom: 12px; padding: 0.5rem 0.7rem; }
+}
+@media (max-width: 700px) {
+  .music-player {
+    top: 12px;
+    left: 12px;
+    padding: 0.5rem 0.7rem;
+    gap: 0.7rem;
+  }
+}
